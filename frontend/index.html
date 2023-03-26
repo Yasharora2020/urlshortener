@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4 text-center">URL Shortener</h1>
+        <form id="url-form" class="d-flex justify-content-center">
+            <div class="input-group mb-3">
+                <label for="long-url" class="sr-only">Long URL:</label>
+                <input type="url" id="long-url" name="long-url" class="form-control" placeholder="Enter long URL" required>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">Shorten</button>
+                </div>
+            </div>
+        </form>
+        <div id="result" class="text-center"></div>
+    </div>
+    <!-- Add your JavaScript here -->
+</body>
+</html>
