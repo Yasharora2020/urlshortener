@@ -4,6 +4,11 @@ provider:
   name: aws
   endpointType: REGIONAL
   runtime: python3.8
+  #apiGateway:
+  #  binaryMediaTypes:
+  #    - '*/*'
+  #logs:
+  #  restApi: true
   lambdaHashingVersion: 20201221
   stage: ${opt:stage, 'dev'}
   profile: macbook
@@ -48,7 +53,8 @@ functions:
           path: /{id}
           method: get
           cors: true
-          integration: lambda
+          integration: lambda-proxy
+          
           
       - http:
           path: /{id}

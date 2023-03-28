@@ -5,7 +5,7 @@ document.getElementById('url-form').addEventListener('submit', async (event) => 
     const resultDiv = document.getElementById('result');
 
     try {
-        const response = await fetch('https://20tt0mg9t8.execute-api.ap-southeast-2.amazonaws.com/dev/create', {
+        const response = await fetch('https://.execute-api.ap-southeast-2.amazonaws.com/dev/create', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -19,7 +19,7 @@ def handler(event, context):
         }
 
     short_id = hashlib.md5(original_url.encode('utf-8')).hexdigest()[:6]
-    shortened_url = f'https://{event["headers"]["Host"]}/{short_id}'
+    shortened_url = f'https://{event["headers"]["Host"]}/{event["requestContext"]["stage"]}/{short_id}'
 
     try:
         put_url(short_id, original_url)
