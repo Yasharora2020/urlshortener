@@ -12,5 +12,8 @@
   "dependencies": {
     "serverless-iam-roles-per-function": "^3.2.0",
     "serverless-python-requirements": "^6.0.0"
+  },
+  "devDependencies": {
+    "serverless-s3-deploy": "^0.10.1"
   }
 }

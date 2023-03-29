@@ -31,6 +31,11 @@ def handler(event, context):
 
     response = {
         'statusCode': HTTPStatus.OK,
+        'headers': {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+        },
         'body': json.dumps({
             'shortened_url': shortened_url,
             'original_url': original_url

@@ -18,10 +18,26 @@ provider:
 plugins:
   - serverless-python-requirements
   - serverless-iam-roles-per-function
+  - serverless-s3-deploy
 
 custom:
   pythonRequirements:
     dockerizePip: true
+
+  serverlessS3Bucket:
+    staticSite: true
+    indexDocument: index.html
+    errorDocument: error.html
+  
+
+  
+  s3Deploy:
+    - bucket: !Ref StaticSiteBucket
+      files:
+            - source: public/
+      localPath: ./public/
+
+
 
 functions:
   urlShortener:
@@ -60,6 +76,8 @@ functions:
           path: /{id}
           method: options
           cors: true
+
+
 
   
 resources:

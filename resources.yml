@@ -9,4 +9,24 @@ urlsTable:
         KeySchema:
           - AttributeName: id
             KeyType: HASH
-        
+
+StaticSiteBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: my-personal-url-shortener-${self:provider.stage}
+        AccessControl: PublicRead
+        WebsiteConfiguration:
+          IndexDocument: ${self:custom.serverlessS3Bucket.indexDocument}
+          ErrorDocument: ${self:custom.serverlessS3Bucket.errorDocument}
+
+BucketPolicy:
+  Type: AWS::S3::BucketPolicy
+  Properties:
+    Bucket: !Ref StaticSiteBucket
+    PolicyDocument:
+      Statement:
+        - Effect: Allow
+          Principal: "*"
+          Action: "s3:GetObject"
+          Resource: !Sub "arn:aws:s3:::${StaticSiteBucket}/*"
+    
